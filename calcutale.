@@ -1,0 +1,84 @@
+import math
+
+history = []
+
+while True:
+    print("\n" + "=" * 40)
+    print("         PYTHON KALKULYATOR")
+    print("=" * 40)
+    print("1. Qo'shish (+)")
+    print("2. Ayirish (-)")
+    print("3. Ko'paytirish (*)")
+    print("4. Bo'lish (/)")
+    print("5. Darajaga oshirish (^)")
+    print("6. Kvadrat ildiz (√)")
+    print("7. Foiz (%)")
+    print("8. Tarixni ko'rish")
+    print("0. Chiqish")
+    print("=" * 40)
+
+    tanlov = input("Tanlovni kiriting: ")
+
+    if tanlov == "0":
+        print("\nDastur tugatildi.")
+        break
+
+    elif tanlov == "8":
+        if history:
+            print("\n----- HISOBLASH TARIXI -----")
+            for i, item in enumerate(history, 1):
+                print(f"{i}. {item}")
+        else:
+            print("Tarix bo'sh.")
+        continue
+
+    elif tanlov == "6":
+        son = float(input("Son kiriting: "))
+        if son < 0:
+            print("Manfiy sonning haqiqiy ildizi yo'q.")
+        else:
+            natija = math.sqrt(son)
+            print("Natija =", natija)
+            history.append(f"√{son} = {natija}")
+        continue
+
+    try:
+        son1 = float(input("1-sonni kiriting: "))
+        son2 = float(input("2-sonni kiriting: "))
+
+        if tanlov == "1":
+            natija = son1 + son2
+            amal = "+"
+
+        elif tanlov == "2":
+            natija = son1 - son2
+            amal = "-"
+
+        elif tanlov == "3":
+            natija = son1 * son2
+            amal = "*"
+
+        elif tanlov == "4":
+            if son2 == 0:
+                print("0 ga bo'lish mumkin emas!")
+                continue
+            natija = son1 / son2
+            amal = "/"
+
+        elif tanlov == "5":
+            natija = son1 ** son2
+            amal = "^"
+
+        elif tanlov == "7":
+            natija = (son1 / 100) * son2
+            amal = "%"
+
+        else:
+            print("Noto'g'ri tanlov!")
+            continue
+
+        print(f"\nNatija: {natija}")
+        history.append(f"{son1} {amal} {son2} = {natija}")
+
+    except ValueError:
+        print("Faqat son kiriting!")
