@@ -1,0 +1,34 @@
+while True:
+    print("\n===== KALKULYATOR =====")
+    print("1. Qo'shish (+)")
+    print("2. Ayirish (-)")
+    print("3. Ko'paytirish (*)")
+    print("4. Bo'lish (/)")
+    print("0. Chiqish")
+
+    tanlov = input("Tanlang: ")
+
+    if tanlov == "0":
+        print("Dastur tugadi.")
+        break
+
+    son1 = float(input("1-sonni kiriting: "))
+    son2 = float(input("2-sonni kiriting: "))
+
+    if tanlov == "1":
+        print("Javob:", son1 + son2)
+
+    elif tanlov == "2":
+        print("Javob:", son1 - son2)
+
+    elif tanlov == "3":
+        print("Javob:", son1 * son2)
+
+    elif tanlov == "4":
+        if son2 == 0:
+            print("0 ga bo'lish mumkin emas!")
+        else:
+            print("Javob:", son1 / son2)
+
+    else:
+        print("Noto'g'ri tanlov!")
